@@ -1,7 +1,7 @@
 package com.company;
 
 
-import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class InternetScore {
@@ -63,139 +63,125 @@ public class InternetScore {
         System.out.println("Для предоставления более полной информации пожалуйста выберите одну из категорий интересующей Вас техники");
     }
 
-    public void categorySelection(Appliances[] appliances1, Appliances[] basket) {
+    public void categorySelection(List<Appliances> refrigeratorList, List<Appliances> tvList, List<Appliances> hooverList, List<Appliances> basket) {
         System.out.println("1.Холодильники");
         System.out.println("2.Телевизоры");
         System.out.println("3.Пылесосы");
-        System.out.println("4.Выйти из магазина");
+        System.out.println("4.Выйти из магазина/просмотр корзины");
         Scanner scr = new Scanner(System.in);
         category = scr.nextInt();
         if (category > 0 && category <= 3) {
             System.out.println("Загрузка данных по интересующей Вас категории");
         } else if (category == 4) {
             System.out.println("Оплатите Ваши товары в корзине");
-            System.out.println(Arrays.toString(basket));
-            System.exit(0);
+            System.out.println(basket);
+
+        } else if (category > 4) {
+            System.out.println("Неправильно выбрана категория,попробуйте еще");
         }
+
         if (category == 1) {
-            System.out.println(appliances1[0]);
-            System.out.println(appliances1[1]);
-            System.out.println(appliances1[2]);
-            System.out.println(appliances1[3]);
-            System.out.println(appliances1[4]);
-
+            for (Appliances refrigerator1 : refrigeratorList) {
+                System.out.println(refrigerator1);
+            }
+            System.out.println("Для помещения интересующего товара в корзину укажите его порядковый номер");
+            System.out.println("Для возврата в предыдущее меню введите 0");
+            int choice = scr.nextInt();
+            switch (choice) {
+                case 0:
+                    break;
+                case 1:
+                    basket.add(refrigeratorList.get(0));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 2:
+                    basket.add(refrigeratorList.get(1));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 3:
+                    basket.add(refrigeratorList.get(2));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 4:
+                    basket.add(refrigeratorList.get(3));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 5:
+                    basket.add(refrigeratorList.get(4));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+            }
         } else if (category == 2) {
-            System.out.println(appliances1[5]);
-            System.out.println(appliances1[6]);
-            System.out.println(appliances1[7]);
-            System.out.println(appliances1[8]);
-            System.out.println(appliances1[9]);
+            for (Appliances tv1 : tvList) {
+                System.out.println(tv1);
+            }
+            System.out.println("Для помещения интересующего товара в корзину укажите его порядковый номер");
+            System.out.println("Для возврата в предыдущее меню введите 0");
+            int choice = scr.nextInt();
+            switch (choice) {
+                case 0:
+                    break;
+                case 1:
+                    basket.add(tvList.get(0));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 2:
+                    basket.add(tvList.get(1));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 3:
+                    basket.add(tvList.get(2));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 4:
+                    basket.add(tvList.get(3));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 5:
+                    basket.add(tvList.get(4));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+            }
+
         } else if (category == 3) {
-            System.out.println(appliances1[10]);
-            System.out.println(appliances1[11]);
-            System.out.println(appliances1[12]);
-            System.out.println(appliances1[13]);
-            System.out.println(appliances1[14]);
+            for (Appliances hoover1 : hooverList) {
+                System.out.println(hoover1);
+            }
+            System.out.println("Для помещения интересующего товара в корзину укажите его порядковый номер");
+            System.out.println("Для возврата в предыдущее меню введите 0");
+            int choice = scr.nextInt();
+            switch (choice) {
+                case 0:
+                    break;
+                case 1:
+                    basket.add(hooverList.get(0));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 2:
+                    basket.add(hooverList.get(1));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 3:
+                    basket.add(hooverList.get(2));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 4:
+                    basket.add(hooverList.get(3));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+                case 5:
+                    basket.add(hooverList.get(4));
+                    System.out.println("Спасибо Ваш товар добавлен в корзину");
+                    break;
+            }
+
         }
 
     }
-
-    public void actionStore(Appliances[] appliances1, Appliances[] basket) {
-        System.out.println("Для помещения интересующего товара в корзину укажите его порядковый номер");
-        System.out.println("Для возврата в предыдущее меню введите 0");
-        Scanner scr = new Scanner(System.in);
-        int choice = scr.nextInt();
-        switch (choice) {
-            case 0:
-                break;
-            case 1:
-                basket[0] = appliances1[0];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 2:
-                basket[1] = appliances1[1];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 3:
-                basket[2] = appliances1[2];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 4:
-                basket[3] = appliances1[3];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 5:
-                basket[4] = appliances1[4];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 6:
-                basket[5] = appliances1[5];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 7:
-                basket[6] = appliances1[6];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 8:
-                basket[7] = appliances1[7];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 9:
-                basket[8] = appliances1[8];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 10:
-                basket[9] = appliances1[9];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 11:
-                basket[10] = appliances1[10];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 12:
-                basket[11] = appliances1[11];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 13:
-                basket[12] = appliances1[12];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 14:
-                basket[13] = appliances1[13];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-            case 15:
-                basket[14] = appliances1[14];
-                System.out.println("Спасибо Ваш товар добавлен в корзину");
-                break;
-        }
-    }
-
 }
 
 
-//    public void actionStore(Appliances[] appliances1,Appliances[] appliances2,Appliances[] appliances3) {
-//    Appliances [] basket = new Appliances[15];
-//        System.out.println("Для помещения интересующего товара в корзину укажите его порядковый номер");
-//        System.out.println("Для возврата в предыдущее меню введите 6");
-//        System.out.println("Для окончания работы магазина 7");
-//        Scanner scr = new Scanner(System.in);
-//        int choice = scr.nextInt();
-//        switch (choice) {
-//            case 1:
-//                basket [0] = appliances1[0];
-//                System.out.println("Спасибо Ваш товар добавлен в корзину");
-//                System.out.println(Arrays.toString(basket));
-//            case 2:
-//            case 3:
-//            case 4:
-//            case 5:
-//                System.out.println("HaHaHa");
-//            case 6:
-//                break;
-//            case 7:
-//                System.exit(0);
-//        }
+
 
 
 
